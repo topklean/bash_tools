@@ -1,0 +1,30 @@
+alias go_thm="ctfGo t"
+alias go_htb="ctfGo h"
+alias go_oscp="ctfGo o"
+alias go_ctf="ctfGo"
+alias xports="extractPorts"
+alias xp="extractPorts"
+alias ha="hostadd"
+alias nng="grepNmapScript"
+alias getrobots="wwwGetRobots"
+alias getcomments="wwwGetComment"
+alias gp=grepport
+
+alias py3w="python3 -m http.server"
+alias py2w="python -m SimpleHTTPServer"
+
+# need lynx
+alias getlinks='lynx -dump -nonumbers -list_decoded -listonly -hiddenlinks=listonly -unique_urls'
+alias getsource='lynx -source'
+alias getcontent='lynx -dump -nonumbers -nolist'
+
+alias np1="nmap -Pn -n -oG grep"
+alias np2='sudo nmap -Pn -n -sCV -O -oN version -p'
+alias np3='sudo nmap -Pn -n -sS --open --min-rate 5000 -p- -oN all_normal'
+
+
+alias go=cd
+
+alias sshkg='ssh-keygen -f "id_rsa_$(for i in {1..5}; do printf "\\$(printf %o $(($RANDOM%26+97)))"; done)" -t rsa -N "" &> /dev/null ||:'
+
+alias wwwHeaders='curl -LI'
