@@ -107,7 +107,7 @@ ctfInitVpn () { : # Init VPN - <t1|t2|t|h|o>
 	esac
 }
 
-ctfSetIpTarget () { # Set IP of target CTF
+ctfSetIpTarget () { : # Set IP of target CTF
 	echo -en "${1:- ::: No target ::: }" > "$target_file"
 	export victime="$1" 
 }
@@ -118,7 +118,7 @@ ctfGetIpTarget () { : # Get IP of target CTF
 	echo "$victime => in clipboard (mouse paste...)" >&2
 }
 
-ctfInit () { 
+ctfInit () { : # core ctf Init function
 	# usage
 	[[ $# -eq 0 ]] && {
 			echo
@@ -157,7 +157,7 @@ ctfInit () {
 
 }
 
-ctfMkdir () {
+ctfMkdir () { : # creating directories
 	[[ $ctf = "TRUE" ]] && {
 		echo "un peu d'action 😏";
 		eval mkdir -p "$ctf_dir/$ctf_working_tree"
@@ -668,12 +668,12 @@ xip () { : # extract IPs from file or pipe
 	}
 }
 
-grepcontenttype () { #: grep contype in seclist
+grepcontenttype () { : # grep contype in seclist
 	file_content_type="/usr/share/seclists/Miscellaneous/web/content-type.txt"
 	[[ -n $1 ]] && grep -Poi --color=never ".*$1.*" "$file_content_type" | sort || sort "$file_content_type" | batcat -l sql --style numbers,grid
 }
 
-clearCache() {
+clearCache() { : # clear system cache
 	sudo bash -c 'sync; echo 3 > /proc/sys/vm/drop_caches'
 }
 
